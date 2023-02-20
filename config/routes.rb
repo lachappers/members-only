@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get 'hangouts/index'
   # root to: "posts#index"
 
   devise_for :users
@@ -7,7 +8,10 @@ Rails.application.routes.draw do
   resources :posts
   # , only: [:create, :new, :index]
 
-  root "posts#index"
+  root 'hangouts#index'
+
+  resources :messages, only: [:create]
+  # root "posts#index"
 
   # resources :posts do
   #   resources :comments, only: [:create]
